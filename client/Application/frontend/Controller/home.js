@@ -1,3 +1,16 @@
+Template.home.onRendered(function() {
+    $(window).resize(function() {
+        var windowWidth = $(window).width();
+        var windowHeight = $(window).height();
+        if((windowWidth<=320) && (windowHeight<=480)){
+            Router.go("/search");
+        }else if((windowWidth>320) && (windowWidth<=768)){
+            Router.go("/login");
+        }else{
+            Router.go("/");
+        }
+    });
+});
 Session.set('limit',4);
 Template.home.helpers({
 	showFirstRow:function(){
