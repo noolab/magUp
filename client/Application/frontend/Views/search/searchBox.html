@@ -1,0 +1,24 @@
+<template name="searchBox">
+    <section class="content">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                    <div class="top-heading">
+                        <h1 class="text-center">Beauty</h1>
+                    </div>
+                    {{#esEach index="article"}}
+                        <div class="col-md-3">
+                            <div class="wrapper-title">
+                                <h4>{{title}}</h4>
+                            </div>
+                            <a href="/articledetail/{{_id}}"><img src="/uploads/{{getImage imageId}}" class="img-thumbnail" alt="Cinque Terre" width="250"></a>
+                           <div class="wrapper-text">
+                                <p class="description-img-magup">{{title}}</p>
+                           </div>
+                        </div>
+                    {{/esEach}}
+                </div>
+            </div>
+        </div>
+    </section>
+</template>

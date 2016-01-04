@@ -1,0 +1,60 @@
+<template name="beauty">
+	<section class="content">
+		<div class="container">
+			<div class="row">
+				<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+					<div class="top-heading">
+						{{#with currentarticle}}
+							<h1 class="text-center">{{title}}</h1>
+						{{/with}}
+					</div>
+					{{#each showFirstRow}}
+						
+							<div class="col-md-3">
+								<a href="/articledetail/{{_id}}"><img src="/uploads/{{getImage imageId}}" class="img-thumbnail" alt="Cinque Terre" width="250"></a>
+							   <div class="wrapper-text">
+					            <p class="desc description-img-magup">{{description}}</p>
+					           </div>
+							</div>
+						
+					{{/each}}
+					<div class="clearfix"></div>
+					{{#with firstarticle}}
+					   <div class="col-md-2"></div>
+							<div class="col-md-8">
+								<h1>{{title}}</h1>
+								<a href="/articledetail/{{_id}}"><img src="/uploads/{{getImage imageId}}" class="img-thumbnail  big-img" alt="Cinque Terre" width="100%"></a>
+								<div class="wrapper-text">
+									<p class="description-img-magup">{{description}}</p>
+								</div>
+							</div>
+					  <div class="col-md-2"></div>
+					{{/with}}
+					{{#with secondarticle}}
+						<div class="col-sm-8 col-sm-offset-2">
+							<h1 class="text-right">{{title}}</h1>
+							<a href="/articledetail/{{_id}}"><img src="/uploads/{{getImage imageId}}" class="img-thumbnail big-img" alt="Cinque Terre" width="100%"></a>
+							<div class="wrapper-text">
+								<p class="description-img-magup">{{description}}</p>
+							</div>
+						</div>
+					{{/with}}
+					<div class="control-4-boxs">
+						{{#each morearticle}}
+							<div class="col-lg-3 col-md-3 col-sm-3 col-xs-6">
+								<a href="/articledetail/{{_id}}"><img src="/uploads/{{getImagemore imageId}}" class="img-thumbnail" alt="Cinque Terre" width="250"></a>
+								<div class="wrapper-text">
+									<p class="desc description-img-magup">Description Description Descrip-<br>tion
+										Description Description
+										Description Description Descrip-<br>tion
+										Description
+									</p>
+								</div>
+							</div>
+						{{/each}}
+					</div> <!-- control-4-boxs -->x
+				</div>
+			</div> <!-- row -->
+		</div> <!-- container -->
+	</section> <!-- section -->
+</template>

@@ -1,0 +1,57 @@
+<template name="header">
+	<nav class="navbar navbar-inverse">
+		<div class="container-fluid">
+			<div class="navbar-header">
+			  <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>                        
+			  </button>
+			  <a class="navbar-brand" href="/">Mag's UP</a>
+			</div>
+			<div class="collapse navbar-collapse" id="myNavbar">
+				<ul class="nav navbar-nav">
+					{{#each dismenu}}
+					<li id="listCate"><a href="#">{{title}}</a></li>
+					{{/each}}
+				</ul>
+			  <div class="column pull-right">
+				<div id="sb-search" class="sb-search">
+					<form>
+						{{> esInput index="article" class="sb-search-input nav-livesearch-input js-search-term text" placeholder="Search here..." aria-label="Search Projects" data-tracker-name="Header Live Search"}}
+						<input class="sb-search-submit" type="submit" value="">
+						<span class="sb-icon-search"><i class="fa fa-search fa-1x"></i></span>
+					</form>
+				</div>
+			</div>
+			</div>
+			
+		</div>
+	</nav> <!-- nav navbar-inverse -->
+	<div class="col-md-12">
+	 <div class="container">
+	  <div class="row">
+		<div class="pull-right">
+	            {{#if currentUser}}
+	           		<div class="dropdown">
+				      <button class="btn btn-black dropdown-toggle btn-md" type="button" data-toggle="dropdown">{{currentUser.profile.username}}
+				      <span class="caret"></span></button>
+				      <ul class="dropdown-menu">
+				      	{{#if isInRole 'Admin'}}
+					        <li><a href="/displayarticle">Mange Aricle</a></li>
+					        <li><a href="/managecategories">Manage Categories</a></li>
+					        <li><a href="/manageuser">Manage Users</a></li>
+					    {{/if}}
+				        <li><a href="#" id="logout">Logout</a></li>
+				      </ul>
+				    </div> 
+             	{{else}}
+             		<div class="dropdown">
+				      <a href="/login" class="btn btn-black btn-md">Login</a>
+				    </div>
+              	{{/if}}
+		 </div>
+		</div>
+	</div>
+	</div>
+</template>
