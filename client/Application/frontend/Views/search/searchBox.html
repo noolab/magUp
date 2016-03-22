@@ -17,6 +17,9 @@
                            </div>
                         </div>
                     {{/esEach}}
+                    {{#ifEsHasNoResults index="article"}}
+                          <h3 class="text-center">No results found!</h3>
+                    {{/ifEsHasNoResults}}
                 </div>
             </div>
         </div>

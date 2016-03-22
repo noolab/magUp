@@ -1,12 +1,17 @@
-
 Template.categories.events({
     "click #save":function(event){
         event.preventDefault();
         var title = $("#title").val();
         var image = Session.get('ADDIMAGEID');
-        //var image = $("#image").val();
-        alert("test"+ title);
-    Meteor.call('categories',title,image);
+        if(title==""){
+            Bert.alert( 'Please Check your category name!!!', 'danger', 'growl-top-right' );
+        }else if(image == "" || image== "undefined"){
+            Bert.alert( 'Images is required!!!', 'danger', 'growl-top-right' );
+        }else{
+            Meteor.call('categories',title,image);  
+            Session.set('ADDIMAGEID','');
+            Router.go('/managecategories');
+        }
     },
     'change #upload': function(event, template) {
         var files = event.target.files;
