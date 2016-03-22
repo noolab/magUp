@@ -20,11 +20,6 @@ Template.articledetail.helpers({
             return;
         }
     },
-/*	relatearticle:function(){
-		var id = this.catId;
-        var items = article.find({catId:id}, {sort: {createdAt: -1}}).fetch();
-        return items.slice(1,5);
-	},*/
     relatearticle: function(){
     function shuffle(o){
             for(var j, x, i = o.length; i; j = Math.floor(Math.random() * i), x = o[--i], o[i] = o[j], o[j] = x);
@@ -54,11 +49,6 @@ Template.articledetail.helpers({
             return;
         }
 	},
-    /*relateArtByDate:function(){
-        var id = this.catId;
-        var items = article.find({catId:id}, {sort: {createdAt: -1}}).fetch();
-        return items.slice(0,1);
-    },*/
     relateArtByDate: function(){
     function shuffle(o){
             for(var j, x, i = o.length; i; j = Math.floor(Math.random() * i), x = o[--i], o[i] = o[j], o[j] = x);
