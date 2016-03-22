@@ -1,0 +1,79 @@
+li.register{
+	background-color: #000;
+}
+li.register a{
+	color: #fff;
+	font-size: 16px;
+}
+/*Register and Login page*/
+.panel-default {
+ opacity: 0.9;
+ margin-top:30px;
+}
+.form-group.last {
+ margin-bottom:0px;
+}
+.panel-login{
+	background-color: #231f20;
+	color: #fff;
+	padding: 30px;
+}
+.header-login{
+	margin-bottom: 5px;
+  overflow: hidden;
+}
+.header-login .btn-lg-login {
+  display: inline-block;
+  padding: 15px 35px;
+  margin-bottom: 0;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.42857143;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  -ms-touch-action: manipulation;
+  touch-action: manipulation;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  background-image: none;
+  border: 1px solid transparent;
+  border-radius: 0px;
+  background-color: #fff;
+  color: #000;
+}
+.cont-validate{
+  margin: 20px 0px;
+}
+
+/*Mag's UP page*/
+.img-magup{
+	background-color: #000;
+	padding: 80px;
+}
+.img-magup-big{
+	background-color: #000;
+	padding: 100px;
+	margin: 25px 0px;
+	overflow: hidden;
+}
+.top-heading{
+	margin-bottom: 60px;
+}
+p.description-img-magup{
+	margin: 10px 0px;
+	font-family: ceorgia;
+	font-size: 16px;
+}
+.control-4-boxs{
+	margin: 60px 0px;
+}
+
+/*Dorri Mag page*/
+.hr-dorri{
+	border: 2px solid #000;
+	margin: 75px 75px;
+}
