@@ -36,3 +36,10 @@
 	section{margin-top:90px}
 
 }
+.title h4{
+	color:black;
+	white-space: nowrap; 
+    width: 11em; 
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
