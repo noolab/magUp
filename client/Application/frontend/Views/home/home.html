@@ -8,6 +8,7 @@
 					</div>
 					{{#each showFirstRow}}
 						<div class="col-md-3">
+							<a href="/articledetail/{{_id}}" class="title"><h4>{{title}}</h4></a>
 							<a href="/articledetail/{{_id}}"><img src="/uploads/{{getImage imageId}}" class="img-thumbnail" alt="Cinque Terre" width="250"></a>
 						   <div class="wrapper-text">
 				            <p class="desc description-img-magup">{{description}}</p>
@@ -38,6 +39,7 @@
 					<div class="control-4-boxs">
 						{{#each morearticle}}
 							<div class="col-lg-3 col-md-3 col-sm-3 col-xs-6">
+							<a href="/articledetail/{{_id}}" class="title"><h4>{{title}}</h4></a>
 								<a href="/articledetail/{{_id}}"><img src="/uploads/{{getImage imageId}}" class="img-thumbnail" alt="Cinque Terre" width="250"></a>
 							   	<div class="wrapper-text">
 					            	<p class="desc description-img-magup">{{description}}</p>
