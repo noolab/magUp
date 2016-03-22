@@ -73,7 +73,17 @@ Template.manageuser.events({
             Meteor.call("deleteUser",id);
         }
     },
-    'click #adduser': function(e){
+    /*'click #adduser': function(e){
+        e.preventDefault();
+        var username = $('#username').val();
+        var email = $('#email').val();
+        var password = $('#password').val();
+        var mySelect = $('#mySelect').val();
+        //alert(username+email+password+mySelect);
+        Meteor.call('addUser',username,email,password,mySelect);
+        //Router.go('project');
+    }*/
+    'submit form': function(e){
         e.preventDefault();
         var username = $('#username').val();
         var email = $('#email').val();
