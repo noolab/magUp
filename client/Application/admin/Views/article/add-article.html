@@ -5,6 +5,13 @@
                 <h1 class="page-header">Forms Create New Categories</h1>
             </div>
         </div>
+        {{#if registerError}}
+                                        <div class="alert alert-danger" style="padding:15px;" role="alert">
+                                          <span style="display:inline-block" class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+                                          <span style="display:inline-block" class="sr-only">Error:</span>
+                                        {{{registerErrormsg}}}<br/>
+                                        </div>
+                                 {{/if}}
         <div class="row">
             <div class="col-lg-12">
                 <div class="panel panel-default">
@@ -15,6 +22,7 @@
                     <div class="panel-body">
                         <div class="row">
                             <div class="col-lg-12">
+                                
                                 <form role="form">
                                     <div class="form-group">
                                         <label>Title</label>
@@ -22,7 +30,7 @@
                                     </div>
                                     <div class="form-group">
                                         <label>Description</label>
-                                        <textarea class="form-control" placeholder="Enter Description" id="desc" rows="7"></textarea>
+                                        <textarea class="form-control descriptatical" placeholder="Enter Description" id="desc" rows="7"></textarea>
                                     </div>
                                     <div class="form-group">
                                         <label>Image</label>
@@ -30,23 +38,23 @@
                                     </div>
                                     <div class="form-group">
                                         <label>Youtube_URL</label>
-                                        <input class="form-control" placeholder="Enter Youtube URL" id="youtube">
+                                        <input class="form-control videourl" placeholder="Enter Youtube URL" id="youtube">
                                     </div>
                                     <div class="form-group">
                                         <label>Video</label>
                                         <input type="file" id="video">
                                     </div>
                                     <div class="form-group">
-                                    	<label>Categories</label>
-                                    	<select class="form-control" id="cate">
-                                    		<option>Select Categories</option>
+                                        <label>Categories</label>
+                                        <select class="form-control" id="cate">
+                                            <option>Select Categories</option>
                                             {{#each getCate}}
                                                 <option value="{{_id}}">{{title}}</option>
                                             {{/each}}
-                                    	</select>
+                                        </select>
                                     </div>
                                     <div class="form-group pull-right">
-                                        <a href="/displayarticle"><button type="submit" id="btn-save" class="btn-black">Save</button></a>
+                                        <button type="submit" id="btn-save" class="btn-black">Save</button>
                                     </div>
                                 </form>
                             </div>
