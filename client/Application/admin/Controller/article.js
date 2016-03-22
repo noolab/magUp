@@ -1,6 +1,6 @@
 Session.set("mgerroratical","");
 Session.set("registerError", "" );
-
+Session.set('skip',0);
 
 Template.article.events({
 	'click #btn-save':function(e){
@@ -134,8 +134,28 @@ Template.displayart.events({
         if (confirm("Are you sure you want to delete this?")) {
             Meteor.call('removeArt',id);
         }    
+    },
+    "click .prev": function(e) {
+        e.preventDefault();
+        var skip=Session.get('skip');
+        Session.set('skip',skip-10);
+    },
+    "click .next": function(e) {
+        e.preventDefault();
+        var skip=Session.get('skip');
+        // Session.set('skip',skip+10);
+
+        var dnext = article.find({}).count();
+        if (dnext < 10) {
+            $(".next").prop("disabled",true);
+        } else {
+            Session.set('skip',skip+10);
+        }
+        
     }
+
 });
+
 Template.updateArt.events({
 	'click #btn-update':function(e){
 		e.preventDefault();
