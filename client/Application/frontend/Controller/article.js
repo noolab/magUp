@@ -19,11 +19,31 @@ Template.articledetail.helpers({
             return;
         }
     },
-	relatearticle:function(){
+/*	relatearticle:function(){
 		var id = this.catId;
         var items = article.find({catId:id}, {sort: {createdAt: -1}}).fetch();
         return items.slice(1,5);
-	},
+	},*/
+    relatearticle: function(){
+    function shuffle(o){
+            for(var j, x, i = o.length; i; j = Math.floor(Math.random() * i), x = o[--i], o[i] = o[j], o[j] = x);
+            return o;
+        }
+        var id = this.catId;
+        var myArray=[];
+        var itemsRandom=[];
+        var items = article.find({catId:id}, {sort: {createdAt: -1}}).fetch();
+        items.forEach(function(value){
+            myArray.push(value);
+        });
+        var arrayRandom=shuffle(myArray);
+        for(var ran=0;ran<4;ran++){
+            if(arrayRandom[ran]){
+               itemsRandom.push(arrayRandom[ran]); 
+            }  
+        }
+        return itemsRandom;
+    },
 	getImagerelate:function(image){
 		var img = images.findOne({_id:image});
         if(img){
@@ -33,10 +53,30 @@ Template.articledetail.helpers({
             return;
         }
 	},
-    relateArtByDate:function(){
+    /*relateArtByDate:function(){
         var id = this.catId;
         var items = article.find({catId:id}, {sort: {createdAt: -1}}).fetch();
         return items.slice(0,1);
+    },*/
+    relateArtByDate: function(){
+    function shuffle(o){
+            for(var j, x, i = o.length; i; j = Math.floor(Math.random() * i), x = o[--i], o[i] = o[j], o[j] = x);
+            return o;
+        }
+        var id = this.catId;
+        var myArray=[];
+        var itemsRandom=[];
+        var items = article.find({catId:id}, {sort: {createdAt: -1}}).fetch();
+        items.forEach(function(value){
+            myArray.push(value);
+        });
+        var arrayRandom=shuffle(myArray);
+        for(var ran=0;ran<1;ran++){
+            if(arrayRandom[ran]){
+               itemsRandom.push(arrayRandom[ran]); 
+            }  
+        }
+        return itemsRandom;
     },
     sortArt:function(){
         var id = this.catId;
