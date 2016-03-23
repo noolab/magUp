@@ -11,9 +11,8 @@ Template.article.events({
             tube_url = tube_url.replace("&list=","?list=");
         var tube_url = youtube.replace("watch?v=","embed/");
 		var cate = $("#cate").val();
-        alert(tube_url);
 		Meteor.call('addarticle',title,desc,img,video,tube_url,cate);
-		//Router.go('displayart');
+		Router.go('displayarticle');
 	},
 	'change #img': function(event, template) {
         var files = event.target.files;
@@ -82,7 +81,6 @@ Template.updateArt.events({
         var currentImage = $('#currentImage').val();
         if(typeof img == "undefined"){
             img = currentImage;
-            alert("hello2"+img);
         }
         if(typeof video == "undefined"){
             video = currentvideo;
@@ -91,7 +89,7 @@ Template.updateArt.events({
             if(error){}
             else{
                 Session.set('ADDIMAGEID',undefined);
-                Router.go('displayart');
+                Router.go('displayarticle');
             }
 
         });
