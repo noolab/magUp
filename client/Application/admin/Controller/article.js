@@ -1,3 +1,7 @@
+Session.set("mgerroratical","");
+Session.set("registerError", "" );
+Session.set('skip',0);
+
 Template.article.events({
 	'click #btn-save':function(e){
 		e.preventDefault();
@@ -11,11 +15,47 @@ Template.article.events({
             tube_url = tube_url.replace("&list=","?list=");
         var tube_url = youtube.replace("watch?v=","embed/");
 		var cate = $("#cate").val();
-		Meteor.call('addarticle',title,desc,img,video,tube_url,cate);
-		Router.go('displayarticle');
+
+         var msg ="";
+        if (title == "" || desc == "" || img  == "undefined" || img == null || video == "undefined" || video == null || tube_url == "" || cate == ""){
+            if (title == ""){
+                msg+= "Please enter your title"+"<br/>";
+                console.log("title");
+            }
+
+            if (desc == ""){
+                msg+= "Please enter your description"+"<br/>";
+                console.log("desc");
+            }
+
+            if (img  == "undefined" || img == null){
+                msg+= "Please select your image"+"<br/>";
+                console.log("img");
+            }
+
+            if (video == "undefined" || video == null ){
+
+                msg+= "Please select your video"+"<br/>";
+                console.log("video");
+            }
+
+            if (cate == "" || cate == "Select Categories"){
+                msg+= "Please select your category"+"<br/>";
+                console.log("cat");
+            }
+            Session.set("mgerroratical",msg);
+            Session.set("registerError", msg );
+        }else {
+            Meteor.call('addarticle',title,desc,img,video,tube_url,cate);
+            Session.set("mgerroratical","");
+            Session.set("registerError","" );
+            Router.go('/displayarticle');
+        }
 	},
 	'change #img': function(event, template) {
         var files = event.target.files;
+        Session.set("mgerroratical","");
+        Session.set("registerError", "" );
         for (var i = 0, ln = files.length; i < ln; i++) {
           	images.insert(files[i], function (err, fileObj) {
 	            // Inserted new doc with ID fileObj._id, and kicked off the data upload using HTTP
@@ -25,18 +65,51 @@ Template.article.events({
     },
     'change #video': function(event, template) {
         var files = event.target.files;
+        Session.set("mgerroratical","");
+        Session.set("registerError", "" );
         for (var i = 0, ln = files.length; i < ln; i++) {
           	images.insert(files[i], function (err, fileObj) {
 	            // Inserted new doc with ID fileObj._id, and kicked off the data upload using HTTP
             	Session.set('ADDVIDEOID', fileObj._id);
           	});
         }
+    },
+    "change #cate":function(){
+        Session.set("mgerroratical","");
+        Session.set("registerError", "" );
+    },
+    "keyup #title":function(e){
+        Session.set("mgerroratical","");
+        Session.set("registerError", "" );
+    },
+    "keyup .descriptatical":function(e){
+        Session.set("mgerroratical","");
+        Session.set("registerError", "" );
+    },
+    "keyup .videourl":function(e){
+        Session.set("mgerroratical","");
+        Session.set("registerError", "" );
     }
 });
 Template.article.helpers({
 	getCate:function(){
 		return categories.find();
-	}
+	},
+    getmsg: function(){
+        var msg = Session.get('mgerroratical',msg);
+        if( msg !="" ) return msg;
+        else msg ='';
+    },
+    registerError:function(){
+        var msg = Session.get("registerError");
+        if( msg ) return true;
+        else return false;
+    },
+    registerErrormsg: function(){
+        geterr=Session.get("registerError");
+        
+        return geterr;
+    }
 });
 Template.displayart.helpers({
 	displayart:function(){
@@ -62,8 +135,28 @@ Template.displayart.events({
         if (confirm("Are you sure you want to delete this?")) {
             Meteor.call('removeArt',id);
         }    
+    },
+    "click .prev": function(e) {
+        e.preventDefault();
+        var skip=Session.get('skip');
+        Session.set('skip',skip-10);
+    },
+    "click .next": function(e) {
+        e.preventDefault();
+        var skip=Session.get('skip');
+        // Session.set('skip',skip+10);
+
+        var dnext = article.find({}).count();
+        if (dnext < 10) {
+            $(".next").prop("disabled",true);
+        } else {
+            Session.set('skip',skip+10);
+        }
+        
     }
+
 });
+
 Template.updateArt.events({
 	'click #btn-update':function(e){
 		e.preventDefault();

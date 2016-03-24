@@ -1,5 +1,4 @@
 <template name="displayart">
-{{#if isInRole 'Admin'}}
 	<div class="container">
         <div class="row">
             <div class="col-lg-12">
@@ -47,16 +46,15 @@
                 </div>
             </div>
         </div>
+        <nav>
+            <ul class="pager">
+                <li>
+                    <a href="#" class="prev"><span aria-hidden="true">&larr;</span>Prev</a>
+                </li>
+                <li>
+                    <a href="#" class="next"><span aria-hidden="true">&rarr;</span>Next</a>
+                </li>
+            </ul>
+        </nav>
     </div>
-{{else}}
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-12">
-                <h2 class="page-header" style="color:#ddd">
-                    !!!Page Not Found No Permission
-                </h2>
-            </div>
-        </div>
-    </div>
-{{/if}}
 </template>
