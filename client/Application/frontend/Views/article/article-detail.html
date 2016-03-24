@@ -20,7 +20,7 @@
 					<hr class="hr-dorri">
 					<h1 class="text-center">Related article</h1>
 					<div class="clearfix"></div>
-					<div class="col-sm-8 col-sm-offset-2">
+					<div class="col-sm-8 col-sm-offset-2" id="gototop">
 						{{#each relateArtByDate}}
 							<h1>{{title}}</h1>
 							<a href="/articledetail/{{_id}}"><img src="/uploads/{{getImagerelate imageId}}" class="img-thumbnail big-img" alt="Cinque Terre" width="100%"></a>
@@ -47,11 +47,20 @@
 		</div> <!-- container -->
 	</section>
 	<!--page to top sreyden-->
-	<script>
-		$(document).ready(function(){
-		    $('#scroll_navigation').on('click', function(){
-		        $('html,body').animate({scrollTop: $(this).offset().top}, 800);
-		    }); 
-		});  
+	<script type="text/javascript">
+		// $(document).ready(function(){
+		//     $('#scroll_navigation').on('click', function(){
+		//         $('html,body').animate({scrollTop: $(this).offset().top}, 800);
+		//     }); 
+		// });  
+
+	$(document).ready(function(){
+		$('#gototop').on('click', function (e) {
+		e.preventDefault();
+		$('html,body').animate({
+		scrollTop: 0
+		}, 700);
+		});
+	});
 	</script>
 </template>
